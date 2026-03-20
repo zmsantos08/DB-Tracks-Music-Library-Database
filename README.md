@@ -1,4 +1,4 @@
-# DB Tracks — Music Library Database
+# CSV to SQL Database automation using Python and SQLite
 
 A Python project that **automates** the parsing of a CSV music library and loads it into a structured **SQLite relational database** with a normalised schema — eliminating manual data entry and making the dataset instantly queryable with SQL.
 
@@ -11,28 +11,6 @@ A Python project that **automates** the parsing of a CSV music library and loads
 - Automatically reads and parses track data from `tracks.csv`
 - Automates the creation of a normalised database with four related tables: `Artist`, `Genre`, `Album`, and `Track`
 - Automates record insertion using foreign key relationships — no duplicates, no manual work
-- Queries and prints the first 10 tracks ordered by artist name
-
-## Database Schema
-
-```
-Artist          Genre
-──────          ─────
-id (PK)         id (PK)
-name            name
-  │                │
-  └────────┐  ┌───┘
-           ▼  ▼
-          Album        Track
-          ─────        ─────
-          id (PK)      id (PK)
-          artist_id    title
-          album_name   album_id → Album
-                       genre_id → Genre
-                       len
-                       rating
-                       count
-```
 
 ## CSV Format
 
@@ -47,6 +25,9 @@ Example:
 Another One Bites The Dust,Queen,Greatest Hits,55,100,217103,Rock
 Black Dog,Led Zeppelin,IV,109,100,296620,Rock
 ```
+## Schema
+
+<img width="1200" height="780" alt="image" src="https://github.com/user-attachments/assets/338bbc34-3add-479c-a3c0-399b0f09a609" />
 
 ## How to Run
 
@@ -67,7 +48,7 @@ python DB_Tracks.py
 ```
 Another One Bites The Dust | Queen | Greatest Hits | Rock
 Black Dog | Led Zeppelin | IV | Rock
-...
+
 ```
 
 ## Project Structure
