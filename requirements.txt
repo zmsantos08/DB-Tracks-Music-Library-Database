@@ -1,0 +1,31 @@
+# Requirements
+# No external dependencies — sqlite3 is built into the Python standard library
+# Requires Python 3.x
+
+# ── Database Schema ────────────────────────────────────────────────────────────
+
+# Artist
+# ──────────────────────────────────────
+# id       INTEGER  PK  AUTOINCREMENT
+# name     TEXT     UNIQUE
+
+# Genre
+# ──────────────────────────────────────
+# id       INTEGER  PK  AUTOINCREMENT
+# name     TEXT     UNIQUE
+
+# Album
+# ──────────────────────────────────────
+# id           INTEGER  PK  AUTOINCREMENT
+# artist_id    INTEGER  FK → Artist.id
+# album_name   TEXT     UNIQUE
+
+# Track
+# ──────────────────────────────────────
+# id           INTEGER  PK  AUTOINCREMENT
+# title        TEXT     UNIQUE
+# album_id     INTEGER  FK → Album.id
+# genre_id     INTEGER  FK → Genre.id
+# len          INTEGER
+# rating       INTEGER
+# count        INTEGER
